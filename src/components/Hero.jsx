@@ -5,35 +5,28 @@ import { ArrowDown, ArrowRight, MapPin, Search } from "lucide-react";
 import "./Hero.css";
 
 function Hero() {
+  const API_URL = import.meta.env.VITE_API_URL || "http://localhost:5000";
+
   const videoRef = useRef(null);
 
-  /* =====================================================
-     VIDEO STATE
-  ====================================================== */
 
   const [activeIndex, setActiveIndex] = useState(0);
 
   const videos = ["/hero2.mp4", "/hero.mp4", "/hero1.mp4"];
 
-  /* =====================================================
-     WEATHER STATE
-  ====================================================== */
+
 
   const [weather, setWeather] = useState(null);
   const [weatherLoading, setWeatherLoading] = useState(true);
 
   const [city, setCity] = useState("Bengaluru");
 
-  /* =====================================================
-     LOCATION SEARCH STATE
-  ====================================================== */
+
 
   const [locationInput, setLocationInput] = useState("");
   const [isChangingLocation, setIsChangingLocation] = useState(false);
 
-  /* =====================================================
-   CURRENCY
-===================================================== */
+
 
   const currencyMap = {
     IN: "INR ₹",
@@ -75,9 +68,7 @@ function Hero() {
     IL: "ILS ₪",
   };
 
-  /* =====================================================
-     FETCH WEATHER
-  ====================================================== */
+
 
   useEffect(() => {
     const fetchWeather = async () => {
@@ -85,7 +76,7 @@ function Hero() {
         setWeatherLoading(true);
 
         const response = await fetch(
-          `http://localhost:5000/api/weather?city=${encodeURIComponent(city)}`,
+          `${API_URL}/api/weather?city=${encodeURIComponent(city)}`,
         );
 
         const data = await response.json();
@@ -107,9 +98,6 @@ function Hero() {
     fetchWeather();
   }, [city]);
 
-  /* =====================================================
-     LOCATION CHANGE
-  ====================================================== */
 
   const handleLocationChange = () => {
     const trimmedLocation = locationInput.trim();
@@ -123,9 +111,7 @@ function Hero() {
     setIsChangingLocation(false);
   };
 
-  /* =====================================================
-     LOCATION ENTER KEY
-  ====================================================== */
+
 
   const handleLocationKeyDown = (event) => {
     if (event.key === "Enter") {
@@ -141,17 +127,13 @@ function Hero() {
     }
   };
 
-  /* =====================================================
-     VIDEO ENDED
-  ====================================================== */
+
 
   const handleVideoEnded = () => {
     setActiveIndex((current) => (current + 1) % videos.length);
   };
 
-  /* =====================================================
-     LOAD NEW VIDEO
-  ====================================================== */
+
 
   useEffect(() => {
     const video = videoRef.current;
@@ -171,17 +153,13 @@ function Hero() {
     playVideo();
   }, [activeIndex]);
 
-  /* =====================================================
-     CHANGE VIDEO
-  ====================================================== */
+
 
   const handleImageClick = (index) => {
     setActiveIndex(index);
   };
 
-  /* =====================================================
-     WEATHER ICON
-  ====================================================== */
+
 
   const getWeatherIcon = () => {
     if (!weather) return "🌤️";
@@ -215,9 +193,7 @@ function Hero() {
     }
   };
 
-  /* =====================================================
-   LOCAL TIME
-===================================================== */
+
 
   const getLocalTime = () => {
     if (!weather?.timezone) {
@@ -240,9 +216,7 @@ function Hero() {
       hour12: true,
     });
   };
-  /* =====================================================
-   CURRENCY
-===================================================== */
+
 
   const getCurrency = () => {
     if (!weather?.countryCode) {
@@ -252,15 +226,11 @@ function Hero() {
     return currencyMap[weather.countryCode] || "Local currency";
   };
 
-  /* =====================================================
-     RENDER
-  ====================================================== */
+
 
   return (
     <section className="hero" id="explore">
-      {/* =====================================================
-          BACKGROUND VIDEO
-      ====================================================== */}
+
 
       <div className="hero-video-wrapper">
         <video
@@ -280,9 +250,7 @@ function Hero() {
 
       <div className="hero-vignette" />
 
-      {/* =====================================================
-          HERO CONTENT
-      ====================================================== */}
+
 
       <section className="hero-content">
         <motion.div
@@ -333,9 +301,7 @@ function Hero() {
           </div>
         </motion.div>
 
-        {/* =====================================================
-            WATCH JOURNEY
-        ====================================================== */}
+
 
         <motion.button
           className="journey-trigger"
@@ -362,9 +328,7 @@ function Hero() {
         </motion.button>
       </section>
 
-      {/* =====================================================
-          DESTINATION RAIL
-      ====================================================== */}
+
 
       <motion.div
         className="destination-rail"
@@ -420,9 +384,7 @@ function Hero() {
         </div>
       </motion.div>
 
-      {/* =====================================================
-          SCROLL INDICATOR
-      ====================================================== */}
+
 
       <motion.div
         className="scroll-indicator"
@@ -444,9 +406,7 @@ function Hero() {
         <span>SCROLL TO EXPLORE</span>
       </motion.div>
 
-      {/* =====================================================
-          LOCATION CARD
-      ====================================================== */}
+
 
       <motion.div
         className="location-card"
@@ -463,9 +423,7 @@ function Hero() {
           duration: 0.8,
         }}
       >
-        {/* =====================================================
-            LOCATION
-        ====================================================== */}
+
 
         <div className="location-info">
           <div className="location-icon">
@@ -519,9 +477,7 @@ function Hero() {
           </div>
         </div>
 
-        {/* =====================================================
-            WEATHER
-        ====================================================== */}
+
 
         <div className="weather-preview">
           {weatherLoading ? (
@@ -565,9 +521,6 @@ function Hero() {
           )}
         </div>
 
-        {/* =====================================================
-            META
-        ====================================================== */}
 
         <div className="location-meta">
           <div>

@@ -26,9 +26,7 @@ function Journey() {
 
       <FloatingAI />
 
-      {/* =====================================================
-          HERO
-      ====================================================== */}
+    
 
       <section className="journey-hero">
         <div className="journey-hero-glow" />
@@ -87,9 +85,7 @@ function Journey() {
         </motion.div>
       </section>
 
-      {/* =====================================================
-          PLANNER
-      ====================================================== */}
+
 
       <section className="journey-planner">
         <motion.div

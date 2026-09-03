@@ -20,9 +20,7 @@ function AIPlanner() {
         {/* Background glow */}
         <div className="ai-planner-glow" />
 
-        {/* =====================================================
-            LEFT CONTENT
-        ====================================================== */}
+
 
         <div className="ai-planner-content">
           <div className="ai-planner-icon">
@@ -65,9 +63,7 @@ function AIPlanner() {
           </div>
         </div>
 
-        {/* =====================================================
-            AI PREVIEW
-        ====================================================== */}
+
 
         <button
           type="button"
@@ -108,10 +104,7 @@ function AIPlanner() {
         </button>
       </section>
 
-      {/* =====================================================
-          CHATBOT
-          IMPORTANT: OUTSIDE AI PLANNER SECTION
-      ====================================================== */}
+
 
       <AerisChatbot isOpen={isChatOpen} onClose={() => setIsChatOpen(false)} />
     </>

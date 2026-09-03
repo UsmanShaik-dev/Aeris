@@ -8,6 +8,8 @@ import AerisBot from "../assets/AIChat.png";
 import "./AerisChatbot.css";
 
 function AerisChatbot({ isOpen, onClose }) {
+  const API_URL = import.meta.env.VITE_API_URL || "http://localhost:5000";
+
   const [messages, setMessages] = useState([
     {
       id: 1,
@@ -52,7 +54,7 @@ function AerisChatbot({ isOpen, onClose }) {
     setIsLoading(true);
 
     try {
-      const response = await fetch("http://localhost:5000/api/chat", {
+      const response = await fetch(`${API_URL}/api/chat`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

@@ -10,10 +10,6 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-/* =========================================================
-   GEMINI
-========================================================= */
-
 const ai = new GoogleGenAI({
   apiKey: process.env.GEMINI_API_KEY,
 });
@@ -79,10 +75,6 @@ ${message}
   }
 }
 
-/* =========================================================
-   CHAT ROUTE
-========================================================= */
-
 app.post("/api/chat", async (req, res) => {
   try {
     const { message } = req.body;
@@ -113,10 +105,6 @@ app.post("/api/chat", async (req, res) => {
   }
 });
 
-/* =========================================================
-   WEATHER ROUTE
-========================================================= */
-
 app.get("/api/weather", async (req, res) => {
   try {
     const city = req.query.city || "Bengaluru";
@@ -128,11 +116,6 @@ app.get("/api/weather", async (req, res) => {
         error: "OpenWeather API key is missing",
       });
     }
-
-    /* -------------------------------------------------------
-       STEP 1
-       Convert city name → latitude / longitude
-    ------------------------------------------------------- */
 
     const geoResponse = await fetch(
       `https://api.openweathermap.org/geo/1.0/direct?q=${encodeURIComponent(
@@ -162,11 +145,6 @@ app.get("/api/weather", async (req, res) => {
 
     const location = locations[0];
 
-    /* -------------------------------------------------------
-       STEP 2
-       Get current weather
-    ------------------------------------------------------- */
-
     const weatherResponse = await fetch(
       `https://api.openweathermap.org/data/2.5/weather?lat=${location.lat}&lon=${location.lon}&units=metric&appid=${apiKey}`,
     );
@@ -176,11 +154,6 @@ app.get("/api/weather", async (req, res) => {
     }
 
     const weather = await weatherResponse.json();
-
-    /* -------------------------------------------------------
-       STEP 3
-       Send only what frontend needs
-    ------------------------------------------------------- */
 
     res.json({
       city: location.name,
@@ -218,10 +191,6 @@ app.get("/api/weather", async (req, res) => {
     });
   }
 });
-
-/* =========================================================
-   SERVER
-========================================================= */
 
 const PORT = process.env.PORT || 5000;
 

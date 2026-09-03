@@ -223,8 +223,8 @@ app.get("/api/weather", async (req, res) => {
    SERVER
 ========================================================= */
 
-const PORT = 5000;
+const PORT = process.env.PORT || 5000;
 
-app.listen(PORT, () => {
-  console.log(`Aeris AI server running on http://localhost:${PORT}`);
+app.listen(PORT, "0.0.0.0", () => {
+  console.log(`Aeris AI server running on port ${PORT}`);
 });

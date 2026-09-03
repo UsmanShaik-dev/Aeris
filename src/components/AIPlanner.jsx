@@ -7,7 +7,7 @@ import {
   WandSparkles,
 } from "lucide-react";
 
-import AerisChatbot from "./AerisChatbot";
+import AerisChatBot from "./AerisChatBot";
 
 import "./AIPlanner.css";
 
@@ -19,8 +19,6 @@ function AIPlanner() {
       <section className="ai-planner-section" id="journey">
         {/* Background glow */}
         <div className="ai-planner-glow" />
-
-
 
         <div className="ai-planner-content">
           <div className="ai-planner-icon">
@@ -63,8 +61,6 @@ function AIPlanner() {
           </div>
         </div>
 
-
-
         <button
           type="button"
           className="ai-planner-preview"
@@ -104,9 +100,7 @@ function AIPlanner() {
         </button>
       </section>
 
-
-
-      <AerisChatbot isOpen={isChatOpen} onClose={() => setIsChatOpen(false)} />
+      <AerisChatBot isOpen={isChatOpen} onClose={() => setIsChatOpen(false)} />
     </>
   );
 }

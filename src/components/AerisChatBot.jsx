@@ -5,9 +5,9 @@ import { AnimatePresence, motion } from "framer-motion";
 import AIProfile from "../assets/AIprofile.png";
 import AerisBot from "../assets/AIChat.png";
 
-import "./AerisChatbot.css";
+import "./AerisChatBot.css";
 
-function AerisChatbot({ isOpen, onClose }) {
+function AerisChatBot({ isOpen, onClose }) {
   const API_URL = import.meta.env.VITE_API_URL || "http://localhost:5000";
 
   const [messages, setMessages] = useState([
@@ -263,4 +263,4 @@ function AerisChatbot({ isOpen, onClose }) {
   );
 }
 
-export default AerisChatbot;
+export default AerisChatBot;

@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Sparkles } from "lucide-react";
 
-import AerisChatbot from "../AerisChatbot";
+import AerisChatBot from "../AerisChatBot";
 import "./FloatingAI.css";
 
 function FloatingAI() {
@@ -22,7 +22,7 @@ function FloatingAI() {
         <span className="floating-ai-pulse" />
       </button>
 
-      <AerisChatbot isOpen={isChatOpen} onClose={() => setIsChatOpen(false)} />
+      <AerisChatBot isOpen={isChatOpen} onClose={() => setIsChatOpen(false)} />
     </>
   );
 }

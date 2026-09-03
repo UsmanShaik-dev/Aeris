@@ -1,0 +1,521 @@
+/* =========================================================
+   FEATURED DESTINATIONS
+========================================================= */
+
+.featured-section {
+  position: relative;
+  padding: 90px 0;
+  overflow: hidden;
+
+  background:
+    radial-gradient(
+      circle at 15% 20%,
+      rgba(139, 92, 246, 0.07),
+      transparent 30%
+    ),
+    #07090b;
+}
+
+/* =========================================================
+   SECTION HEADING
+========================================================= */
+
+.section-heading {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+
+  margin: 0 clamp(24px, 7vw, 110px) 32px;
+}
+
+.section-eyebrow {
+  display: block;
+  margin-bottom: 10px;
+
+  color: var(--accent-warm);
+
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: 0.2em;
+}
+
+.section-heading h2 {
+  margin: 0;
+
+  font-family: var(--font-display);
+  font-size: clamp(40px, 4.5vw, 64px);
+  font-weight: 500;
+  line-height: 0.95;
+  letter-spacing: -0.04em;
+}
+
+.section-heading h2 span {
+  margin-left: 12px;
+
+  background: linear-gradient(110deg, #ffffff, #c9a9ff, #efd39c);
+
+  -webkit-background-clip: text;
+  background-clip: text;
+
+  color: transparent;
+}
+
+/* =========================================================
+   VIEW ALL BUTTON
+========================================================= */
+
+.view-all-button {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  padding: 10px 16px;
+
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 999px;
+
+  color: rgba(255, 255, 255, 0.75);
+  background: rgba(255, 255, 255, 0.04);
+
+  font-size: 10px;
+
+  cursor: pointer;
+
+  transition:
+    background 250ms ease,
+    transform 250ms ease,
+    color 250ms ease;
+}
+
+.view-all-button:hover {
+  color: white;
+
+  background: rgba(255, 255, 255, 0.09);
+
+  transform: translateX(3px);
+}
+
+/* =========================================================
+   CAROUSEL VIEWPORT
+========================================================= */
+
+.destination-carousel {
+  position: relative;
+
+  width: 100%;
+
+  overflow: hidden;
+
+  padding: 28px 0 45px;
+}
+
+/* Edge fade */
+
+.destination-carousel::before,
+.destination-carousel::after {
+  content: "";
+
+  position: absolute;
+
+  top: 0;
+  bottom: 0;
+
+  width: clamp(25px, 7vw, 120px);
+
+  z-index: 5;
+
+  pointer-events: none;
+}
+
+.destination-carousel::before {
+  left: 0;
+
+  background: linear-gradient(90deg, #07090b, transparent);
+}
+
+.destination-carousel::after {
+  right: 0;
+
+  background: linear-gradient(270deg, #07090b, transparent);
+}
+
+/* =========================================================
+   MOVING TRACK
+========================================================= */
+
+.destination-track {
+  display: flex;
+
+  width: max-content;
+
+  will-change: transform;
+
+  animation: destinationScroll 38s linear infinite;
+}
+
+.destination-group {
+  display: flex;
+  align-items: center;
+
+  gap: 15px;
+
+  padding-right: 15px;
+
+  flex-shrink: 0;
+}
+
+/* =========================================================
+   PAUSE ON HOVER
+========================================================= */
+
+.destination-carousel:hover .destination-track {
+  animation-play-state: paused;
+}
+
+/* =========================================================
+   DESTINATION CARD
+========================================================= */
+
+.destination-card {
+  position: relative;
+
+  /*
+    BEFORE:
+    360px × 440px
+
+    NOW:
+    300px × 370px
+  */
+
+  flex: 0 0 300px;
+
+  height: 370px;
+
+  overflow: hidden;
+
+  border: 1px solid rgba(255, 255, 255, 0.1);
+
+  border-radius: 20px;
+
+  background: #0b0e11;
+
+  cursor: pointer;
+
+  transform: translateY(0) scale(1);
+
+  transition:
+    transform 500ms cubic-bezier(0.2, 0.8, 0.2, 1),
+    border-color 400ms ease,
+    box-shadow 500ms ease;
+}
+
+/* =========================================================
+   CARD HOVER
+========================================================= */
+
+.destination-card:hover {
+  z-index: 20;
+
+  transform: translateY(-8px) scale(1.045);
+
+  border-color: rgba(255, 255, 255, 0.3);
+
+  box-shadow:
+    0 30px 65px rgba(0, 0, 0, 0.5),
+    0 12px 40px rgba(0, 0, 0, 0.3),
+    0 0 45px rgba(139, 92, 246, 0.1);
+}
+
+/* =========================================================
+   CARD IMAGE
+========================================================= */
+
+.destination-card img {
+  position: absolute;
+
+  inset: 0;
+
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+
+  transform: scale(1);
+
+  filter: saturate(0.95);
+
+  transition:
+    transform 900ms cubic-bezier(0.2, 0.8, 0.2, 1),
+    filter 700ms ease;
+}
+
+.destination-card:hover img {
+  transform: scale(1.08);
+
+  filter: saturate(1.1) brightness(1.04);
+}
+
+/* =========================================================
+   CARD OVERLAY
+========================================================= */
+
+.destination-card-overlay {
+  position: absolute;
+
+  inset: 0;
+
+  pointer-events: none;
+
+  background: linear-gradient(
+    180deg,
+    rgba(4, 6, 8, 0.02) 15%,
+    rgba(4, 6, 8, 0.12) 38%,
+    rgba(4, 6, 8, 0.94) 100%
+  );
+
+  transition: background 500ms ease;
+}
+
+.destination-card:hover .destination-card-overlay {
+  background: linear-gradient(
+    180deg,
+    rgba(4, 6, 8, 0.02) 10%,
+    rgba(4, 6, 8, 0.08) 38%,
+    rgba(4, 6, 8, 0.92) 100%
+  );
+}
+
+/* =========================================================
+   CARD CONTENT
+========================================================= */
+
+.destination-card-content {
+  position: absolute;
+
+  left: 21px;
+  right: 21px;
+  bottom: 20px;
+
+  z-index: 2;
+
+  transform: translateY(0);
+
+  transition: transform 450ms ease;
+}
+
+.destination-card:hover .destination-card-content {
+  transform: translateY(-3px);
+}
+
+.destination-card-content > span {
+  color: rgba(255, 255, 255, 0.65);
+
+  font-size: 8px;
+
+  font-weight: 600;
+
+  letter-spacing: 0.18em;
+}
+
+.destination-card-content h3 {
+  margin: 6px 0;
+
+  font-family: var(--font-display);
+
+  font-size: 29px;
+
+  font-weight: 500;
+
+  line-height: 1;
+
+  letter-spacing: -0.025em;
+}
+
+.destination-card-content p {
+  max-width: 255px;
+
+  margin: 0 0 15px;
+
+  color: rgba(255, 255, 255, 0.62);
+
+  font-size: 10px;
+
+  line-height: 1.6;
+}
+
+.destination-card-footer {
+  display: flex;
+
+  justify-content: space-between;
+
+  padding-top: 11px;
+
+  border-top: 1px solid rgba(255, 255, 255, 0.14);
+
+  color: rgba(255, 255, 255, 0.65);
+
+  font-size: 8px;
+
+  letter-spacing: 0.1em;
+}
+
+/* =========================================================
+   SEAMLESS INFINITE LOOP
+========================================================= */
+
+@keyframes destinationScroll {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 900px) {
+  .featured-section {
+    padding: 75px 0;
+  }
+
+  .destination-card {
+    flex-basis: 270px;
+
+    height: 350px;
+
+    border-radius: 18px;
+  }
+
+  .destination-group {
+    gap: 14px;
+
+    padding-right: 14px;
+  }
+
+  .destination-track {
+    animation-duration: 32s;
+  }
+
+  .destination-card-content {
+    left: 19px;
+    right: 19px;
+    bottom: 18px;
+  }
+
+  .destination-card-content h3 {
+    font-size: 27px;
+  }
+}
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 600px) {
+  .featured-section {
+    padding: 70px 0;
+  }
+
+  .section-heading {
+    align-items: flex-start;
+
+    gap: 18px;
+
+    margin: 0 20px 25px;
+  }
+
+  .section-heading h2 {
+    font-size: 40px;
+  }
+
+  .section-heading h2 span {
+    display: block;
+
+    margin: 4px 0 0;
+  }
+
+  .view-all-button {
+    padding: 9px 12px;
+  }
+
+  .destination-carousel {
+    padding: 22px 0 35px;
+  }
+
+  .destination-group {
+    gap: 12px;
+
+    padding-right: 12px;
+  }
+
+  .destination-track {
+    animation-duration: 27s;
+  }
+
+  .destination-card {
+    /*
+      Smaller mobile cards
+    */
+
+    flex-basis: 250px;
+
+    height: 335px;
+
+    border-radius: 18px;
+  }
+
+  .destination-card:hover {
+    transform: translateY(-5px) scale(1.03);
+  }
+
+  .destination-card-content {
+    left: 18px;
+
+    right: 18px;
+
+    bottom: 18px;
+  }
+
+  .destination-card-content h3 {
+    font-size: 26px;
+  }
+
+  .destination-card-content p {
+    font-size: 10px;
+
+    margin-bottom: 13px;
+  }
+}
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .destination-track {
+    animation: none;
+  }
+
+  .destination-card,
+  .destination-card img,
+  .destination-card-content {
+    transition: none;
+  }
+}
+/* =========================================================
+   DESTINATION CARD LINK
+========================================================= */
+
+.destination-card-link {
+  display: block;
+
+  flex: 0 0 300px;
+
+  color: inherit;
+
+  text-decoration: none;
+}

@@ -1,0 +1,796 @@
+/* =========================================================
+   NAVBAR
+========================================================= */
+
+.navbar {
+  position: absolute;
+
+  top: 0;
+  left: 0;
+  right: 0;
+
+  height: 90px;
+
+  padding: 0 clamp(24px, 6vw, 96px);
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  z-index: 100;
+}
+
+/* =========================================================
+   BRAND
+========================================================= */
+
+.brand {
+  display: flex;
+  align-items: center;
+
+  gap: 0;
+
+  color: white;
+
+  font-size: 17px;
+  font-weight: 600;
+
+  letter-spacing: 0.16em;
+
+  text-decoration: none;
+
+  position: relative;
+  z-index: 110;
+}
+
+.brand-logo {
+  width: 80px;
+  height: 80px;
+
+  object-fit: contain;
+
+  display: block;
+
+  margin-right: -10px;
+}
+
+/* =========================================================
+   NAV LINKS
+========================================================= */
+
+.nav-links {
+  display: flex;
+
+  gap: 42px;
+
+  position: absolute;
+
+  left: 50%;
+
+  transform: translateX(-50%);
+}
+
+.nav-links a {
+  position: relative;
+
+  color: rgba(255, 255, 255, 0.78);
+
+  font-size: 13px;
+  font-weight: 500;
+
+  text-decoration: none;
+
+  transition:
+    color 250ms ease,
+    transform 250ms ease;
+}
+
+.nav-links a::after {
+  content: "";
+
+  position: absolute;
+
+  left: 0;
+  bottom: -8px;
+
+  width: 0;
+  height: 1px;
+
+  background: var(--accent);
+
+  transition: width 250ms ease;
+}
+
+.nav-links a:hover {
+  color: white;
+
+  transform: translateY(-1px);
+}
+
+.nav-links a:hover::after {
+  width: 100%;
+}
+
+.nav-links a.active {
+  color: white;
+}
+
+.nav-links a.active::after {
+  width: 100%;
+}
+
+/* =========================================================
+   NAV ACTIONS
+========================================================= */
+
+.nav-actions {
+  display: flex;
+
+  align-items: center;
+
+  gap: 10px;
+
+  position: relative;
+
+  z-index: 110;
+}
+
+.nav-action-wrapper {
+  position: relative;
+}
+
+/* =========================================================
+   ICON BUTTON
+========================================================= */
+
+.icon-button {
+  width: 42px;
+  height: 42px;
+
+  display: grid;
+  place-items: center;
+
+  border: 1px solid rgba(255, 255, 255, 0.13);
+
+  border-radius: 50%;
+
+  color: white;
+
+  background: rgba(255, 255, 255, 0.07);
+
+  backdrop-filter: blur(12px);
+
+  cursor: pointer;
+
+  transition:
+    background 250ms ease,
+    transform 250ms ease,
+    border-color 250ms ease;
+}
+
+.icon-button:hover,
+.icon-button-active {
+  background: rgba(255, 255, 255, 0.14);
+
+  border-color: rgba(255, 255, 255, 0.25);
+
+  transform: translateY(-2px);
+}
+
+/* =========================================================
+   LOCATION DROPDOWN
+========================================================= */
+
+.location-dropdown {
+  position: absolute;
+
+  top: 55px;
+  right: 0;
+
+  width: 245px;
+
+  padding: 18px;
+
+  border: 1px solid rgba(255, 255, 255, 0.12);
+
+  border-radius: 20px;
+
+  background: linear-gradient(
+    145deg,
+    rgba(25, 28, 35, 0.97),
+    rgba(10, 12, 16, 0.97)
+  );
+
+  backdrop-filter: blur(25px);
+
+  box-shadow: 0 25px 70px rgba(0, 0, 0, 0.45);
+
+  z-index: 200;
+}
+
+.dropdown-label {
+  display: block;
+
+  margin-bottom: 14px;
+
+  color: rgba(255, 255, 255, 0.3);
+
+  font-size: 9px;
+  font-weight: 600;
+
+  letter-spacing: 0.18em;
+}
+
+/* =========================================================
+   CURRENT LOCATION
+========================================================= */
+
+.current-location {
+  display: flex;
+
+  align-items: center;
+
+  gap: 10px;
+
+  padding-bottom: 15px;
+
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+
+  color: white;
+}
+
+.current-location > svg {
+  margin-left: auto;
+
+  color: rgba(255, 255, 255, 0.3);
+}
+
+.location-icon {
+  width: 34px;
+  height: 34px;
+
+  display: grid;
+  place-items: center;
+
+  border-radius: 10px;
+
+  color: #c4a7ff;
+
+  background: rgba(139, 92, 246, 0.12);
+}
+
+.current-location strong {
+  display: block;
+
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.current-location small {
+  display: block;
+
+  margin-top: 3px;
+
+  color: rgba(255, 255, 255, 0.35);
+
+  font-size: 9px;
+}
+
+/* =========================================================
+   LOCATION OPTIONS
+========================================================= */
+
+.location-options {
+  margin-top: 8px;
+}
+
+.location-option {
+  width: 100%;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 9px 8px;
+
+  border: 0;
+
+  border-radius: 8px;
+
+  color: rgba(255, 255, 255, 0.55);
+
+  background: transparent;
+
+  font-size: 11px;
+
+  text-align: left;
+
+  cursor: pointer;
+
+  transition:
+    background 200ms ease,
+    color 200ms ease;
+}
+
+.location-option:hover {
+  color: white;
+
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.location-option.selected {
+  color: white;
+}
+
+.location-check {
+  color: #c4a7ff;
+
+  font-size: 12px;
+}
+
+/* =========================================================
+   MENU DROPDOWN
+========================================================= */
+
+.menu-dropdown {
+  position: absolute;
+
+  top: 55px;
+  right: 0;
+
+  width: 320px;
+
+  padding: 20px;
+
+  border: 1px solid rgba(255, 255, 255, 0.12);
+
+  border-radius: 22px;
+
+  background:
+    radial-gradient(
+      circle at 85% 5%,
+      rgba(139, 92, 246, 0.13),
+      transparent 35%
+    ),
+    linear-gradient(145deg, rgba(20, 23, 29, 0.98), rgba(8, 10, 14, 0.98));
+
+  backdrop-filter: blur(25px);
+
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.5);
+
+  z-index: 200;
+}
+
+/* =========================================================
+   MENU HEADER
+========================================================= */
+
+.menu-dropdown-header {
+  display: flex;
+
+  align-items: center;
+  justify-content: space-between;
+
+  padding-bottom: 17px;
+
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.menu-dropdown-header span {
+  display: block;
+
+  margin-bottom: 4px;
+
+  color: rgba(255, 255, 255, 0.3);
+
+  font-size: 8px;
+
+  font-weight: 600;
+
+  letter-spacing: 0.18em;
+}
+
+.menu-dropdown-header strong {
+  display: block;
+
+  color: white;
+
+  font-family: var(--font-display);
+
+  font-size: 22px;
+
+  font-weight: 500;
+
+  letter-spacing: -0.02em;
+}
+
+.menu-user-icon {
+  width: 38px;
+  height: 38px;
+
+  display: grid;
+  place-items: center;
+
+  border: 1px solid rgba(167, 139, 250, 0.16);
+
+  border-radius: 12px;
+
+  color: #c4a7ff;
+
+  background: rgba(139, 92, 246, 0.1);
+}
+
+/* =========================================================
+   SECTION LABEL
+========================================================= */
+
+.menu-section-label {
+  margin: 18px 0 9px;
+
+  color: rgba(255, 255, 255, 0.25);
+
+  font-size: 8px;
+
+  font-weight: 600;
+
+  letter-spacing: 0.18em;
+}
+
+/* =========================================================
+   ACCOUNT BUTTONS
+========================================================= */
+
+.menu-account-actions {
+  display: grid;
+
+  grid-template-columns: 1fr 1fr;
+
+  gap: 8px;
+}
+
+.menu-account-button {
+  height: 42px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  gap: 7px;
+
+  border: 1px solid rgba(255, 255, 255, 0.09);
+
+  border-radius: 11px;
+
+  color: rgba(255, 255, 255, 0.65);
+
+  background: rgba(255, 255, 255, 0.04);
+
+  font-size: 10px;
+
+  cursor: pointer;
+
+  transition:
+    background 200ms ease,
+    border-color 200ms ease,
+    color 200ms ease;
+}
+
+.menu-account-button:hover {
+  color: white;
+
+  background: rgba(255, 255, 255, 0.08);
+
+  border-color: rgba(255, 255, 255, 0.16);
+}
+
+.menu-account-button.primary {
+  border-color: rgba(139, 92, 246, 0.25);
+
+  color: white;
+
+  background: rgba(139, 92, 246, 0.13);
+}
+
+.menu-account-button.primary:hover {
+  background: rgba(139, 92, 246, 0.2);
+}
+
+/* =========================================================
+   MENU LINKS
+========================================================= */
+
+.menu-links {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 4px;
+}
+
+.menu-links a,
+.menu-links button {
+  width: 100%;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 11px;
+
+  padding: 9px;
+
+  border: 0;
+
+  border-radius: 11px;
+
+  color: white;
+
+  background: transparent;
+
+  text-align: left;
+
+  text-decoration: none;
+
+  cursor: pointer;
+
+  transition:
+    background 200ms ease,
+    transform 200ms ease;
+}
+
+.menu-links a:hover,
+.menu-links button:hover {
+  background: rgba(255, 255, 255, 0.055);
+
+  transform: translateX(3px);
+}
+
+.menu-link-icon {
+  width: 34px;
+  height: 34px;
+
+  flex-shrink: 0;
+
+  display: grid;
+  place-items: center;
+
+  border-radius: 10px;
+
+  color: #c4a7ff;
+
+  background: rgba(139, 92, 246, 0.09);
+}
+
+.menu-links strong {
+  display: block;
+
+  color: rgba(255, 255, 255, 0.82);
+
+  font-size: 11px;
+
+  font-weight: 500;
+}
+
+.menu-links small {
+  display: block;
+
+  margin-top: 3px;
+
+  color: rgba(255, 255, 255, 0.3);
+
+  font-size: 9px;
+}
+
+/* =========================================================
+   MENU FOOTER
+========================================================= */
+
+.menu-dropdown-footer {
+  display: flex;
+
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 10px;
+
+  margin-top: 14px;
+
+  padding-top: 14px;
+
+  border-top: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+.menu-dropdown-footer span {
+  color: rgba(255, 255, 255, 0.22);
+
+  font-size: 8px;
+
+  line-height: 1.4;
+}
+
+.menu-dropdown-footer span:last-child {
+  white-space: nowrap;
+
+  letter-spacing: 0.12em;
+}
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 900px) {
+  .nav-links {
+    display: none;
+  }
+}
+
+@media (max-width: 600px) {
+  .navbar {
+    height: 72px;
+
+    padding: 0 22px;
+  }
+
+  .brand {
+    font-size: 16px;
+
+    gap: 8px;
+  }
+
+  .brand-logo {
+    width: 55px;
+    height: 55px;
+
+    margin-right: -8px;
+  }
+
+  .icon-button {
+    width: 39px;
+    height: 39px;
+  }
+
+  .nav-actions {
+    gap: 7px;
+  }
+
+  .location-dropdown {
+    position: fixed;
+
+    top: 80px;
+    right: 20px;
+
+    width: min(245px, calc(100vw - 40px));
+  }
+
+  .menu-dropdown {
+    position: fixed;
+
+    top: 80px;
+    right: 20px;
+
+    width: min(320px, calc(100vw - 40px));
+
+    max-height: calc(100vh - 100px);
+
+    overflow-y: auto;
+  }
+}
+/* =========================================================
+   DETECT LOCATION
+========================================================= */
+
+.detect-location-button {
+  width: 100%;
+
+  display: flex;
+  align-items: center;
+
+  gap: 10px;
+
+  margin-bottom: 14px;
+  padding: 10px 8px;
+
+  border: 1px solid rgba(167, 139, 250, 0.16);
+
+  border-radius: 11px;
+
+  color: white;
+
+  background: rgba(139, 92, 246, 0.07);
+
+  text-align: left;
+
+  cursor: pointer;
+
+  transition:
+    background 200ms ease,
+    border-color 200ms ease,
+    transform 200ms ease;
+}
+
+.detect-location-button:hover:not(:disabled) {
+  background: rgba(139, 92, 246, 0.13);
+
+  border-color: rgba(167, 139, 250, 0.28);
+
+  transform: translateY(-1px);
+}
+
+.detect-location-button:disabled {
+  cursor: wait;
+  opacity: 0.7;
+}
+
+.detect-location-icon {
+  width: 32px;
+  height: 32px;
+
+  flex-shrink: 0;
+
+  display: grid;
+  place-items: center;
+
+  border-radius: 9px;
+
+  color: #c4a7ff;
+
+  background: rgba(139, 92, 246, 0.14);
+}
+
+.detect-location-text {
+  min-width: 0;
+  flex: 1;
+}
+
+.detect-location-text strong {
+  display: block;
+
+  font-size: 11px;
+
+  font-weight: 500;
+}
+
+.detect-location-text small {
+  display: block;
+
+  margin-top: 3px;
+
+  color: rgba(255, 255, 255, 0.35);
+
+  font-size: 8px;
+}
+
+.detect-arrow {
+  flex-shrink: 0;
+
+  color: rgba(255, 255, 255, 0.25);
+}
+
+/* Loading animation */
+
+.location-loader {
+  animation: location-spin 0.9s linear infinite;
+}
+
+@keyframes location-spin {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Location error */
+
+.location-error {
+  margin: -4px 2px 12px;
+
+  color: #eab8b8;
+
+  font-size: 9px;
+
+  line-height: 1.5;
+}

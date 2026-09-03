@@ -1,0 +1,462 @@
+/* =========================================================
+   BACKDROP
+========================================================= */
+
+.aeris-chat-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 9998;
+
+  background: rgba(0, 0, 0, 0.65);
+  backdrop-filter: blur(8px);
+}
+
+/* =========================================================
+   CHATBOT
+========================================================= */
+
+.aeris-chatbot {
+  position: fixed;
+
+  right: 30px;
+  bottom: 30px;
+
+  width: 430px;
+  max-width: calc(100vw - 40px);
+
+  height: 650px;
+  max-height: calc(100vh - 60px);
+
+  display: flex;
+  flex-direction: column;
+
+  z-index: 9999;
+
+  overflow: hidden;
+
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 28px;
+
+  background: #0b0d11;
+
+  box-shadow:
+    0 35px 100px rgba(0, 0, 0, 0.6),
+    0 0 80px rgba(139, 92, 246, 0.15);
+}
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+.aeris-chat-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 20px 21px;
+
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.aeris-chat-brand {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+}
+
+/* =========================================================
+   AI PROFILE
+========================================================= */
+
+.aeris-chat-profile {
+  width: 40px;
+  height: 40px;
+
+  flex-shrink: 0;
+
+  display: grid;
+  place-items: center;
+
+  overflow: hidden;
+
+  border: 1px solid rgba(167, 139, 250, 0.22);
+  border-radius: 12px;
+
+  background: rgba(139, 92, 246, 0.08);
+}
+
+.aeris-chat-profile img {
+  width: 100%;
+  height: 100%;
+
+  display: block;
+
+  object-fit: cover;
+}
+
+/* =========================================================
+   BRAND TEXT
+========================================================= */
+
+.aeris-chat-brand-info {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.aeris-chat-brand strong {
+  color: white;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.aeris-chat-brand span {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+
+  color: rgba(255, 255, 255, 0.4);
+  font-size: 9px;
+}
+
+.aeris-chat-brand span i {
+  width: 6px;
+  height: 6px;
+
+  border-radius: 50%;
+
+  background: #8b5cf6;
+}
+
+/* =========================================================
+   CLOSE
+========================================================= */
+
+.aeris-chat-close {
+  width: 34px;
+  height: 34px;
+
+  display: grid;
+  place-items: center;
+
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 50%;
+
+  color: rgba(255, 255, 255, 0.55);
+  background: rgba(255, 255, 255, 0.04);
+
+  cursor: pointer;
+
+  transition:
+    color 0.2s ease,
+    background 0.2s ease;
+}
+
+.aeris-chat-close:hover {
+  color: white;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+/* =========================================================
+   INTRO
+========================================================= */
+
+.aeris-chat-intro {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+
+  padding: 11px 21px;
+
+  color: rgba(255, 255, 255, 0.35);
+
+  font-size: 9px;
+
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.aeris-chat-intro svg {
+  flex-shrink: 0;
+  color: #b18cff;
+}
+
+/* =========================================================
+   MESSAGES
+========================================================= */
+
+.aeris-chat-messages {
+  flex: 1;
+
+  overflow-y: auto;
+
+  padding: 22px 18px;
+
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255, 255, 255, 0.35) transparent;
+}
+
+.aeris-chat-messages::-webkit-scrollbar {
+  width: 6px;
+}
+
+.aeris-chat-messages::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.aeris-chat-messages::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.25);
+}
+
+/* =========================================================
+   MESSAGE
+========================================================= */
+
+.aeris-message {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+
+  margin-bottom: 18px;
+
+  max-width: 88%;
+}
+
+.aeris-message-user {
+  margin-left: auto;
+
+  justify-content: flex-end;
+}
+
+.aeris-message-ai {
+  margin-right: auto;
+}
+
+/* =========================================================
+   AERIS RESPONSE AVATAR
+========================================================= */
+
+.aeris-message-avatar {
+  width: 34px;
+  height: 34px;
+
+  flex-shrink: 0;
+
+  display: grid;
+  place-items: center;
+
+  margin-top: 1px;
+
+  overflow: hidden;
+
+  border-radius: 10px;
+
+  background: rgba(139, 92, 246, 0.08);
+
+  border: 1px solid rgba(167, 139, 250, 0.14);
+}
+
+.aeris-message-avatar img {
+  width: 100%;
+  height: 100%;
+
+  display: block;
+
+  object-fit: cover;
+}
+
+/* =========================================================
+   MESSAGE BUBBLE
+========================================================= */
+
+.aeris-message-bubble {
+  padding: 12px 14px;
+
+  border-radius: 15px;
+
+  color: rgba(255, 255, 255, 0.78);
+
+  font-size: 12px;
+  line-height: 1.65;
+
+  background: rgba(255, 255, 255, 0.045);
+}
+
+.aeris-message-user .aeris-message-bubble {
+  color: rgba(255, 255, 255, 0.9);
+
+  background: rgba(139, 92, 246, 0.18);
+
+  border: 1px solid rgba(139, 92, 246, 0.16);
+
+  border-bottom-right-radius: 5px;
+}
+
+.aeris-message-ai .aeris-message-bubble {
+  border-bottom-left-radius: 5px;
+}
+
+/* =========================================================
+   THINKING
+========================================================= */
+
+.aeris-thinking {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+
+  padding: 14px 16px;
+
+  border-radius: 15px;
+  border-bottom-left-radius: 5px;
+
+  background: rgba(255, 255, 255, 0.045);
+}
+
+.aeris-thinking span {
+  width: 5px;
+  height: 5px;
+
+  border-radius: 50%;
+
+  background: #b18cff;
+
+  animation: aerisThinking 1.2s infinite ease-in-out;
+}
+
+.aeris-thinking span:nth-child(2) {
+  animation-delay: 0.15s;
+}
+
+.aeris-thinking span:nth-child(3) {
+  animation-delay: 0.3s;
+}
+
+@keyframes aerisThinking {
+  0%,
+  60%,
+  100% {
+    opacity: 0.25;
+    transform: translateY(0);
+  }
+
+  30% {
+    opacity: 1;
+    transform: translateY(-3px);
+  }
+}
+
+/* =========================================================
+   INPUT
+========================================================= */
+
+.aeris-chat-input-area {
+  padding: 15px 17px 17px;
+
+  border-top: 1px solid rgba(255, 255, 255, 0.07);
+
+  background: rgba(5, 7, 10, 0.95);
+}
+
+.aeris-chat-input {
+  height: 48px;
+
+  display: flex;
+  align-items: center;
+  gap: 8px;
+
+  padding: 0 7px 0 15px;
+
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 14px;
+
+  background: rgba(255, 255, 255, 0.045);
+}
+
+.aeris-chat-input:focus-within {
+  border-color: rgba(167, 139, 250, 0.35);
+}
+
+.aeris-chat-input input {
+  min-width: 0;
+  flex: 1;
+
+  border: 0;
+  outline: 0;
+
+  color: white;
+  background: transparent;
+
+  font-family: inherit;
+  font-size: 12px;
+}
+
+.aeris-chat-input input::placeholder {
+  color: rgba(255, 255, 255, 0.28);
+}
+
+.aeris-chat-input button {
+  width: 34px;
+  height: 34px;
+
+  flex-shrink: 0;
+
+  display: grid;
+  place-items: center;
+
+  border: 0;
+  border-radius: 10px;
+
+  color: white;
+
+  background: linear-gradient(135deg, #7c3aed, #9b6cff);
+
+  cursor: pointer;
+}
+
+.aeris-chat-input button:disabled {
+  opacity: 0.3;
+  cursor: default;
+}
+
+.aeris-chat-hint {
+  display: block;
+
+  margin-top: 8px;
+  padding: 0 3px;
+
+  color: rgba(255, 255, 255, 0.22);
+
+  font-size: 8px;
+}
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 600px) {
+  .aeris-chatbot {
+    right: 12px;
+    bottom: 12px;
+
+    width: calc(100vw - 24px);
+    max-width: none;
+
+    height: calc(100vh - 24px);
+    max-height: none;
+
+    border-radius: 23px;
+  }
+
+  .aeris-chat-messages {
+    padding: 18px 14px;
+  }
+
+  .aeris-chat-header {
+    padding: 17px;
+  }
+
+  .aeris-chat-input-area {
+    padding: 12px;
+  }
+}

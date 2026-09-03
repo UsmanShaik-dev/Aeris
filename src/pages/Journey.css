@@ -1,0 +1,526 @@
+/* =========================================================
+   JOURNEY PAGE
+========================================================= */
+
+.journey-page {
+  min-height: 100vh;
+
+  background:
+    radial-gradient(
+      circle at 75% 20%,
+      rgba(139, 92, 246, 0.1),
+      transparent 30%
+    ),
+    radial-gradient(
+      circle at 15% 70%,
+      rgba(239, 211, 156, 0.04),
+      transparent 28%
+    ),
+    #06080b;
+
+  color: white;
+}
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.journey-hero {
+  position: relative;
+
+  min-height: 52vh;
+
+  display: flex;
+  align-items: center;
+
+  padding: 125px clamp(24px, 8vw, 120px) 55px;
+
+  overflow: hidden;
+}
+
+.journey-hero-glow {
+  position: absolute;
+
+  width: 380px;
+  height: 380px;
+
+  right: -130px;
+  top: 50%;
+
+  transform: translateY(-50%);
+
+  border-radius: 50%;
+
+  background: rgba(139, 92, 246, 0.08);
+
+  filter: blur(90px);
+
+  pointer-events: none;
+}
+
+.journey-hero-content {
+  position: relative;
+  z-index: 2;
+
+  max-width: 700px;
+}
+
+/* =========================================================
+   ICON
+========================================================= */
+
+.journey-icon {
+  width: 40px;
+  height: 40px;
+
+  display: grid;
+  place-items: center;
+
+  margin-bottom: 18px;
+
+  border: 1px solid rgba(167, 139, 250, 0.18);
+
+  border-radius: 12px;
+
+  color: #c4a7ff;
+
+  background: rgba(139, 92, 246, 0.08);
+
+  box-shadow: 0 12px 35px rgba(139, 92, 246, 0.08);
+}
+
+/* =========================================================
+   EYEBROW
+========================================================= */
+
+.journey-eyebrow {
+  display: block;
+
+  margin-bottom: 15px;
+
+  color: var(--accent-warm);
+
+  font-size: 9px;
+  font-weight: 600;
+
+  letter-spacing: 0.2em;
+}
+
+/* =========================================================
+   TITLE
+========================================================= */
+
+.journey-title {
+  margin: 0;
+
+  font-family: var(--font-display);
+
+  font-size: clamp(48px, 6.5vw, 88px);
+
+  font-weight: 500;
+
+  line-height: 0.88;
+
+  letter-spacing: -0.055em;
+}
+
+.journey-title span {
+  display: block;
+
+  background: linear-gradient(105deg, #ffffff 10%, #c9a9ff 55%, #efd39c 95%);
+
+  -webkit-background-clip: text;
+  background-clip: text;
+
+  color: transparent;
+}
+
+/* =========================================================
+   DESCRIPTION
+========================================================= */
+
+.journey-description {
+  max-width: 510px;
+
+  margin: 22px 0 0;
+
+  color: rgba(255, 255, 255, 0.5);
+
+  font-size: 13px;
+
+  line-height: 1.75;
+}
+
+/* =========================================================
+   PLANNER
+========================================================= */
+
+.journey-planner {
+  display: grid;
+
+  grid-template-columns: 1fr 1fr;
+
+  gap: 14px;
+
+  padding: 10px clamp(24px, 6vw, 95px) 75px;
+}
+
+/* =========================================================
+   BASIC CARD
+========================================================= */
+
+.journey-card {
+  position: relative;
+
+  padding: 24px;
+
+  border: 1px solid rgba(255, 255, 255, 0.08);
+
+  border-radius: 20px;
+
+  background: linear-gradient(
+    145deg,
+    rgba(255, 255, 255, 0.055),
+    rgba(255, 255, 255, 0.02)
+  );
+
+  backdrop-filter: blur(18px);
+
+  transition:
+    transform 300ms ease,
+    border-color 300ms ease;
+}
+
+.journey-card:hover {
+  transform: translateY(-3px);
+
+  border-color: rgba(167, 139, 250, 0.18);
+}
+
+/* =========================================================
+   LABEL
+========================================================= */
+
+.journey-card-label {
+  display: block;
+
+  margin-bottom: 17px;
+
+  color: rgba(255, 255, 255, 0.28);
+
+  font-size: 8px;
+  font-weight: 600;
+
+  letter-spacing: 0.17em;
+}
+
+/* =========================================================
+   CARD TEXT
+========================================================= */
+
+.journey-card h2 {
+  margin: 0;
+
+  font-family: var(--font-display);
+
+  font-size: 27px;
+
+  font-weight: 500;
+
+  letter-spacing: -0.02em;
+}
+
+.journey-card p {
+  margin: 10px 0 17px;
+
+  color: rgba(255, 255, 255, 0.4);
+
+  font-size: 11px;
+
+  line-height: 1.65;
+}
+
+/* =========================================================
+   INPUT
+========================================================= */
+
+.journey-input-wrapper {
+  height: 46px;
+
+  display: flex;
+  align-items: center;
+
+  gap: 9px;
+
+  padding: 0 13px;
+
+  border: 1px solid rgba(255, 255, 255, 0.09);
+
+  border-radius: 11px;
+
+  color: rgba(255, 255, 255, 0.4);
+
+  background: rgba(255, 255, 255, 0.03);
+
+  transition:
+    border-color 250ms ease,
+    background 250ms ease;
+}
+
+.journey-input-wrapper:focus-within {
+  border-color: rgba(167, 139, 250, 0.4);
+
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.journey-input {
+  width: 100%;
+  height: 100%;
+
+  border: 0;
+  outline: 0;
+
+  color: white;
+
+  background: transparent;
+
+  font-size: 11px;
+}
+
+.journey-input::placeholder {
+  color: rgba(255, 255, 255, 0.28);
+}
+
+/* =========================================================
+   REMOVE NUMBER ARROWS
+========================================================= */
+
+.journey-input[type="number"]::-webkit-inner-spin-button,
+.journey-input[type="number"]::-webkit-outer-spin-button {
+  margin: 0;
+
+  appearance: none;
+}
+
+.journey-input[type="number"] {
+  appearance: textfield;
+}
+
+/* =========================================================
+   AI CARD
+========================================================= */
+
+.journey-ai-card {
+  position: relative;
+
+  grid-column: 1 / -1;
+
+  overflow: hidden;
+
+  padding: 27px;
+
+  border: 1px solid rgba(167, 139, 250, 0.13);
+
+  border-radius: 22px;
+
+  background:
+    radial-gradient(
+      circle at 85% 15%,
+      rgba(139, 92, 246, 0.13),
+      transparent 40%
+    ),
+    linear-gradient(
+      145deg,
+      rgba(255, 255, 255, 0.05),
+      rgba(255, 255, 255, 0.018)
+    );
+
+  backdrop-filter: blur(20px);
+}
+
+.journey-ai-glow {
+  position: absolute;
+
+  width: 220px;
+  height: 220px;
+
+  right: -80px;
+  bottom: -120px;
+
+  border-radius: 50%;
+
+  background: rgba(139, 92, 246, 0.11);
+
+  filter: blur(65px);
+
+  pointer-events: none;
+}
+
+/* =========================================================
+   AI ICON
+========================================================= */
+
+.journey-ai-icon {
+  width: 40px;
+  height: 40px;
+
+  display: grid;
+  place-items: center;
+
+  margin-bottom: 17px;
+
+  border-radius: 12px;
+
+  color: #c4a7ff;
+
+  background: rgba(139, 92, 246, 0.1);
+
+  border: 1px solid rgba(167, 139, 250, 0.1);
+}
+
+/* =========================================================
+   AI TEXT
+========================================================= */
+
+.journey-ai-card h2 {
+  position: relative;
+
+  margin: 0;
+
+  font-family: var(--font-display);
+
+  font-size: 32px;
+
+  font-weight: 500;
+
+  letter-spacing: -0.025em;
+}
+
+.journey-ai-card p {
+  position: relative;
+
+  max-width: 500px;
+
+  margin: 10px 0 21px;
+
+  color: rgba(255, 255, 255, 0.43);
+
+  font-size: 11px;
+
+  line-height: 1.7;
+}
+
+/* =========================================================
+   BUTTON
+========================================================= */
+
+.journey-button {
+  position: relative;
+
+  height: 42px;
+
+  display: inline-flex;
+  align-items: center;
+
+  gap: 8px;
+
+  padding: 0 16px;
+
+  border: 0;
+
+  border-radius: 999px;
+
+  color: white;
+
+  background: linear-gradient(110deg, #7c3aed, #9b6cff);
+
+  font-size: 10px;
+
+  cursor: pointer;
+
+  transition:
+    transform 250ms ease,
+    box-shadow 250ms ease;
+}
+
+.journey-button:hover {
+  transform: translateY(-2px);
+
+  box-shadow: 0 10px 28px rgba(124, 58, 237, 0.25);
+}
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 800px) {
+  .journey-hero {
+    min-height: 55vh;
+
+    padding: 115px 25px 55px;
+  }
+
+  .journey-title {
+    font-size: clamp(46px, 13vw, 72px);
+  }
+
+  .journey-description {
+    font-size: 12px;
+  }
+
+  .journey-planner {
+    grid-template-columns: 1fr;
+
+    padding: 5px 20px 60px;
+  }
+
+  .journey-ai-card {
+    grid-column: auto;
+  }
+}
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
+@media (max-width: 500px) {
+  .journey-card,
+  .journey-ai-card {
+    padding: 21px;
+  }
+
+  .journey-card h2 {
+    font-size: 25px;
+  }
+
+  .journey-ai-card h2 {
+    font-size: 28px;
+  }
+}
+/* =========================================================
+   AI ROBOT
+========================================================= */
+
+.journey-robot {
+  position: absolute;
+
+  z-index: 1;
+
+  top: 145px;
+  right: clamp(65px, 11vw, 270px);
+
+  width: clamp(150px, 17vw, 250px);
+
+  pointer-events: none;
+
+  filter: drop-shadow(0 25px 45px rgba(139, 92, 246, 0.18));
+}
+
+.journey-robot img {
+  width: 100%;
+  height: auto;
+
+  display: block;
+
+  object-fit: contain;
+}

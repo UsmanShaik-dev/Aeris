@@ -1,0 +1,190 @@
+/* =========================================================
+   FLOATING AI ASSISTANT
+========================================================= */
+
+.floating-ai-button {
+  position: fixed;
+  right: 28px;
+  bottom: 28px;
+  z-index: 9997;
+
+  width: 60px;
+  height: 60px;
+
+  display: grid;
+  place-items: center;
+
+  padding: 0;
+
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 50%;
+
+  color: white;
+
+  background: rgba(18, 15, 27, 0.9);
+
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+
+  box-shadow:
+    0 12px 40px rgba(0, 0, 0, 0.4),
+    0 0 35px rgba(139, 92, 246, 0.18);
+
+  cursor: pointer;
+
+  transition:
+    transform 350ms cubic-bezier(0.2, 0.8, 0.2, 1),
+    box-shadow 350ms ease,
+    border-color 350ms ease;
+}
+
+/* =========================================================
+   INNER AI ICON
+========================================================= */
+
+.floating-ai-inner {
+  position: relative;
+
+  width: 44px;
+  height: 44px;
+
+  display: grid;
+  place-items: center;
+
+  border: 1px solid rgba(196, 167, 255, 0.25);
+  border-radius: 50%;
+
+  color: #d3bcff;
+
+  background: linear-gradient(
+    145deg,
+    rgba(139, 92, 246, 0.22),
+    rgba(139, 92, 246, 0.07)
+  );
+
+  transition:
+    transform 350ms ease,
+    background 350ms ease,
+    color 350ms ease;
+}
+
+/* =========================================================
+   HOVER
+========================================================= */
+
+.floating-ai-button:hover {
+  transform: translateY(-5px) scale(1.06);
+
+  border-color: rgba(196, 167, 255, 0.4);
+
+  box-shadow:
+    0 18px 50px rgba(0, 0, 0, 0.45),
+    0 0 45px rgba(139, 92, 246, 0.28);
+}
+
+.floating-ai-button:hover .floating-ai-inner {
+  transform: rotate(-8deg) scale(1.06);
+
+  color: white;
+
+  background: linear-gradient(
+    145deg,
+    rgba(139, 92, 246, 0.35),
+    rgba(139, 92, 246, 0.12)
+  );
+}
+
+/* =========================================================
+   PULSE RING
+========================================================= */
+
+.floating-ai-pulse {
+  position: absolute;
+
+  inset: -6px;
+
+  border: 1px solid rgba(167, 139, 250, 0.28);
+
+  border-radius: 50%;
+
+  pointer-events: none;
+
+  animation: aiPulse 2.8s ease-out infinite;
+}
+
+@keyframes aiPulse {
+  0% {
+    transform: scale(0.92);
+    opacity: 0.7;
+  }
+
+  70% {
+    transform: scale(1.25);
+    opacity: 0;
+  }
+
+  100% {
+    transform: scale(1.25);
+    opacity: 0;
+  }
+}
+
+/* =========================================================
+   ACTIVE / CLICK FEEL
+========================================================= */
+
+.floating-ai-button:active {
+  transform: translateY(-2px) scale(0.98);
+}
+
+/* =========================================================
+   FOCUS ACCESSIBILITY
+========================================================= */
+
+.floating-ai-button:focus-visible {
+  outline: 2px solid rgba(196, 167, 255, 0.8);
+  outline-offset: 4px;
+}
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 600px) {
+  .floating-ai-button {
+    right: 18px;
+    bottom: 18px;
+
+    width: 54px;
+    height: 54px;
+  }
+
+  .floating-ai-inner {
+    width: 40px;
+    height: 40px;
+  }
+
+  .floating-ai-inner svg {
+    width: 19px;
+    height: 19px;
+  }
+
+  .floating-ai-pulse {
+    inset: -5px;
+  }
+}
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .floating-ai-button,
+  .floating-ai-inner {
+    transition: none;
+  }
+
+  .floating-ai-pulse {
+    animation: none;
+  }
+}

@@ -1,0 +1,461 @@
+/* =========================================================
+   DESTINATIONS PAGE
+========================================================= */
+
+.destinations-page {
+  min-height: 100vh;
+
+  background:
+    radial-gradient(
+      circle at 15% 20%,
+      rgba(139, 92, 246, 0.09),
+      transparent 30%
+    ),
+    #06080b;
+
+  color: white;
+}
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.destinations-hero {
+  position: relative;
+
+  min-height: 72vh;
+
+  display: flex;
+  align-items: center;
+
+  overflow: hidden;
+
+  padding: 150px clamp(24px, 9vw, 150px) 100px;
+}
+
+.destinations-hero-bg {
+  position: absolute;
+
+  inset: 0;
+
+  background-image: url("https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=2200&q=90");
+
+  background-size: cover;
+  background-position: center;
+
+  transform: scale(1.03);
+}
+
+.destinations-hero-overlay {
+  position: absolute;
+
+  inset: 0;
+
+  background:
+    linear-gradient(
+      90deg,
+      rgba(3, 5, 7, 0.88) 0%,
+      rgba(3, 5, 7, 0.52) 45%,
+      rgba(3, 5, 7, 0.25) 100%
+    ),
+    linear-gradient(
+      180deg,
+      rgba(0, 0, 0, 0.5),
+      transparent 45%,
+      rgba(0, 0, 0, 0.7)
+    );
+}
+
+.destinations-hero-content {
+  position: relative;
+
+  z-index: 2;
+
+  max-width: 850px;
+}
+
+.destinations-eyebrow {
+  display: block;
+
+  margin-bottom: 22px;
+
+  color: var(--accent-warm);
+
+  font-size: 11px;
+  font-weight: 600;
+
+  letter-spacing: 0.22em;
+}
+
+.destinations-hero h1 {
+  margin: 0;
+
+  font-family: var(--font-display);
+
+  font-size: clamp(60px, 9vw, 125px);
+
+  font-weight: 500;
+
+  line-height: 0.88;
+
+  letter-spacing: -0.06em;
+}
+
+.destinations-hero h1 span {
+  display: block;
+
+  background: linear-gradient(105deg, #ffffff 10%, #c9a9ff 55%, #efd39c 95%);
+
+  -webkit-background-clip: text;
+  background-clip: text;
+
+  color: transparent;
+}
+
+.destinations-hero p {
+  margin: 32px 0 0;
+
+  color: rgba(255, 255, 255, 0.6);
+
+  font-size: 15px;
+
+  line-height: 1.8;
+}
+
+/* =========================================================
+   DESTINATION LIST
+========================================================= */
+
+.destination-list {
+  padding: 110px clamp(24px, 7vw, 110px) 130px;
+}
+
+/* =========================================================
+   HEADING
+========================================================= */
+
+.destination-heading {
+  display: flex;
+
+  align-items: flex-end;
+  justify-content: space-between;
+
+  gap: 40px;
+
+  margin-bottom: 55px;
+}
+
+.destination-heading > div span {
+  color: var(--accent-warm);
+
+  font-size: 9px;
+  font-weight: 600;
+
+  letter-spacing: 0.2em;
+}
+
+.destination-heading h2 {
+  margin: 12px 0 0;
+
+  font-family: var(--font-display);
+
+  font-size: clamp(38px, 5vw, 64px);
+
+  font-weight: 500;
+
+  line-height: 0.95;
+
+  letter-spacing: -0.045em;
+}
+
+.destination-heading p {
+  max-width: 350px;
+
+  margin: 0;
+
+  color: rgba(255, 255, 255, 0.42);
+
+  font-size: 12px;
+
+  line-height: 1.8;
+}
+
+/* =========================================================
+   GRID
+========================================================= */
+
+.destination-grid {
+  display: grid;
+
+  grid-template-columns: repeat(3, 1fr);
+
+  gap: 24px;
+}
+
+/* =========================================================
+   CARD
+========================================================= */
+
+.destination-card {
+  min-width: 0;
+}
+
+.destination-image {
+  position: relative;
+
+  height: 390px;
+
+  overflow: hidden;
+
+  border-radius: 26px;
+
+  border: 1px solid rgba(255, 255, 255, 0.1);
+
+  background: #101216;
+}
+
+.destination-image img {
+  width: 100%;
+  height: 100%;
+
+  display: block;
+
+  object-fit: cover;
+
+  transition:
+    transform 700ms cubic-bezier(0.22, 1, 0.36, 1),
+    filter 500ms ease;
+}
+
+.destination-image-overlay {
+  position: absolute;
+
+  inset: 0;
+
+  background: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0.08),
+    transparent 45%,
+    rgba(0, 0, 0, 0.65)
+  );
+
+  pointer-events: none;
+}
+
+.destination-card:hover .destination-image img {
+  transform: scale(1.07);
+}
+
+/* =========================================================
+   NUMBER
+========================================================= */
+
+.destination-number {
+  position: absolute;
+
+  top: 20px;
+  left: 20px;
+
+  width: 34px;
+  height: 34px;
+
+  display: grid;
+  place-items: center;
+
+  border: 1px solid rgba(255, 255, 255, 0.18);
+
+  border-radius: 50%;
+
+  background: rgba(0, 0, 0, 0.25);
+
+  backdrop-filter: blur(10px);
+
+  color: rgba(255, 255, 255, 0.75);
+
+  font-size: 9px;
+
+  letter-spacing: 0.08em;
+}
+
+/* =========================================================
+   ARROW
+========================================================= */
+
+.destination-arrow {
+  position: absolute;
+
+  right: 20px;
+  bottom: 20px;
+
+  width: 42px;
+  height: 42px;
+
+  display: grid;
+  place-items: center;
+
+  border: 1px solid rgba(255, 255, 255, 0.2);
+
+  border-radius: 50%;
+
+  color: white;
+
+  background: rgba(255, 255, 255, 0.08);
+
+  backdrop-filter: blur(12px);
+
+  opacity: 0;
+
+  transform: translateY(8px);
+
+  transition:
+    opacity 300ms ease,
+    transform 300ms ease,
+    background 300ms ease;
+}
+
+.destination-card:hover .destination-arrow {
+  opacity: 1;
+
+  transform: translateY(0);
+}
+
+.destination-arrow:hover {
+  background: rgba(255, 255, 255, 0.18);
+}
+
+/* =========================================================
+   CARD CONTENT
+========================================================= */
+
+.destination-card-content {
+  padding: 20px 5px 5px;
+}
+
+.destination-card-content > span {
+  color: rgba(255, 255, 255, 0.38);
+
+  font-size: 9px;
+  font-weight: 600;
+
+  letter-spacing: 0.18em;
+}
+
+.destination-card-content h3 {
+  margin: 8px 0 7px;
+
+  font-family: var(--font-display);
+
+  font-size: 30px;
+
+  font-weight: 500;
+
+  letter-spacing: -0.025em;
+}
+
+.destination-card-content p {
+  max-width: 300px;
+
+  margin: 0;
+
+  color: rgba(255, 255, 255, 0.42);
+
+  font-size: 11px;
+
+  line-height: 1.7;
+}
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 950px) {
+  .destination-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .destination-image {
+    height: 340px;
+  }
+}
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 700px) {
+  .destinations-hero {
+    min-height: 68vh;
+
+    padding: 130px 24px 80px;
+  }
+
+  .destinations-hero h1 {
+    font-size: clamp(55px, 16vw, 85px);
+  }
+
+  .destinations-hero p {
+    font-size: 14px;
+  }
+
+  .destinations-hero p br {
+    display: none;
+  }
+
+  .destination-list {
+    padding: 80px 22px 90px;
+  }
+
+  .destination-heading {
+    align-items: flex-start;
+
+    flex-direction: column;
+
+    margin-bottom: 40px;
+  }
+
+  .destination-heading p {
+    max-width: 420px;
+  }
+
+  .destination-grid {
+    grid-template-columns: 1fr;
+
+    gap: 40px;
+  }
+
+  .destination-image {
+    height: 430px;
+  }
+
+  .destination-arrow {
+    opacity: 1;
+
+    transform: none;
+  }
+}
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
+@media (max-width: 450px) {
+  .destinations-hero {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+
+  .destination-list {
+    padding-left: 18px;
+    padding-right: 18px;
+  }
+
+  .destination-image {
+    height: 360px;
+
+    border-radius: 21px;
+  }
+
+  .destination-card-content h3 {
+    font-size: 27px;
+  }
+}

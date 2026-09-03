@@ -1,0 +1,517 @@
+/* =========================================================
+   DESTINATION DETAIL
+========================================================= */
+
+.destination-detail-page {
+  min-height: 100vh;
+  background: #06080b;
+  color: white;
+}
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.destination-detail-hero {
+  position: relative;
+
+  /* REDUCED FROM 90vh */
+  min-height: 72vh;
+
+  overflow: hidden;
+
+  display: flex;
+  align-items: flex-end;
+
+  padding: 140px clamp(24px, 9vw, 150px) 80px;
+
+  border-radius: 0 0 28px 28px;
+}
+
+.destination-detail-hero > img {
+  position: absolute;
+  inset: 0;
+
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+
+  /* Slightly zoomed, but not huge */
+  transform: scale(1.01);
+}
+
+.destination-detail-overlay {
+  position: absolute;
+  inset: 0;
+
+  background:
+    linear-gradient(
+      90deg,
+      rgba(3, 5, 7, 0.8),
+      rgba(3, 5, 7, 0.32),
+      rgba(3, 5, 7, 0.12)
+    ),
+    linear-gradient(0deg, rgba(3, 5, 7, 0.85), transparent 60%);
+}
+
+/* =========================================================
+   BACK BUTTON
+========================================================= */
+
+.destination-back {
+  position: absolute;
+
+  top: 105px;
+  left: clamp(24px, 6vw, 96px);
+
+  z-index: 3;
+
+  display: flex;
+  align-items: center;
+  gap: 9px;
+
+  padding: 9px 14px;
+
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 999px;
+
+  color: rgba(255, 255, 255, 0.75);
+
+  background: rgba(0, 0, 0, 0.2);
+
+  backdrop-filter: blur(12px);
+
+  font-size: 10px;
+  letter-spacing: 0.16em;
+
+  cursor: pointer;
+
+  transition:
+    background 250ms ease,
+    transform 250ms ease,
+    color 250ms ease;
+}
+
+.destination-back:hover {
+  color: white;
+
+  background: rgba(255, 255, 255, 0.1);
+
+  transform: translateX(-3px);
+}
+
+/* =========================================================
+   HERO CONTENT
+========================================================= */
+
+.destination-detail-content {
+  position: relative;
+
+  z-index: 2;
+
+  max-width: 760px;
+}
+
+.destination-detail-content > span {
+  display: block;
+
+  margin-bottom: 15px;
+
+  color: var(--accent-warm);
+
+  font-size: 10px;
+  font-weight: 600;
+
+  letter-spacing: 0.22em;
+}
+
+.destination-detail-content h1 {
+  margin: 0;
+
+  font-family: var(--font-display);
+
+  /* REDUCED */
+  font-size: clamp(58px, 8vw, 120px);
+
+  font-weight: 500;
+
+  line-height: 0.86;
+
+  letter-spacing: -0.06em;
+}
+
+.destination-tagline {
+  margin: 22px 0 0;
+
+  font-family: var(--font-display);
+
+  font-size: clamp(20px, 2.5vw, 30px);
+}
+
+.destination-description {
+  max-width: 580px;
+
+  margin: 14px 0 0;
+
+  color: rgba(255, 255, 255, 0.65);
+
+  font-size: 14px;
+
+  line-height: 1.75;
+}
+
+/* =========================================================
+   PLAN TRIP BUTTON
+========================================================= */
+
+.plan-trip-button {
+  margin-top: 25px;
+
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+
+  padding: 12px 18px;
+
+  border: 1px solid rgba(255, 255, 255, 0.18);
+
+  border-radius: 999px;
+
+  color: white;
+
+  background: rgba(255, 255, 255, 0.08);
+
+  font-size: 10px;
+
+  cursor: pointer;
+
+  transition:
+    transform 250ms ease,
+    background 250ms ease;
+}
+
+.plan-trip-button:hover {
+  transform: translateY(-3px);
+
+  background: rgba(255, 255, 255, 0.14);
+}
+
+/* =========================================================
+   INTRO
+========================================================= */
+
+.destination-intro {
+  display: grid;
+
+  grid-template-columns: 1fr 1fr;
+
+  gap: 65px;
+
+  padding: 95px clamp(24px, 9vw, 150px);
+}
+
+.destination-intro > div > span,
+.destination-highlights > span,
+.destination-final-cta > span {
+  color: var(--accent-warm);
+
+  font-size: 9px;
+  font-weight: 600;
+
+  letter-spacing: 0.2em;
+}
+
+.destination-intro h2 {
+  margin: 17px 0 0;
+
+  font-family: var(--font-display);
+
+  font-size: clamp(40px, 5vw, 68px);
+
+  font-weight: 400;
+
+  line-height: 0.95;
+
+  letter-spacing: -0.05em;
+}
+
+.destination-intro h2 strong {
+  display: block;
+
+  background: linear-gradient(105deg, #ffffff, #c9a9ff 55%, #efd39c);
+
+  -webkit-background-clip: text;
+  background-clip: text;
+
+  color: transparent;
+}
+
+.destination-intro > p {
+  align-self: center;
+
+  max-width: 480px;
+
+  color: rgba(255, 255, 255, 0.5);
+
+  font-size: 14px;
+
+  line-height: 1.85;
+}
+
+/* =========================================================
+   HIGHLIGHTS
+========================================================= */
+
+.destination-highlights {
+  padding: 60px clamp(24px, 9vw, 150px);
+}
+
+.highlight-grid {
+  display: grid;
+
+  grid-template-columns: repeat(3, 1fr);
+
+  margin-top: 30px;
+
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.highlight-item {
+  padding: 28px 25px 28px 0;
+
+  border-right: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.highlight-item:not(:first-child) {
+  padding-left: 25px;
+}
+
+.highlight-item:last-child {
+  border-right: 0;
+}
+
+.highlight-item small {
+  color: rgba(255, 255, 255, 0.25);
+
+  font-size: 9px;
+
+  letter-spacing: 0.15em;
+}
+
+.highlight-item h3 {
+  margin: 27px 0 0;
+
+  font-family: var(--font-display);
+
+  font-size: 25px;
+
+  font-weight: 400;
+}
+
+/* =========================================================
+   GALLERY
+========================================================= */
+
+.destination-gallery {
+  display: grid;
+
+  grid-template-columns: 1.15fr 0.85fr;
+
+  gap: 12px;
+
+  /* REDUCED SIDE SPACING */
+  padding: 60px clamp(24px, 7vw, 110px);
+}
+
+.gallery-image {
+  overflow: hidden;
+
+  border-radius: 20px;
+}
+
+.gallery-image img {
+  width: 100%;
+  height: 100%;
+
+  display: block;
+
+  object-fit: cover;
+
+  transition: transform 600ms ease;
+}
+
+.gallery-image:hover img {
+  transform: scale(1.035);
+}
+
+/* MAIN IMAGE REDUCED */
+
+.gallery-image-1 {
+  grid-row: span 2;
+
+  /* REDUCED FROM 650px */
+  min-height: 500px;
+
+  max-height: 520px;
+}
+
+/* SMALL IMAGES REDUCED */
+
+.gallery-image-2,
+.gallery-image-3 {
+  min-height: 240px;
+
+  max-height: 250px;
+}
+
+/* =========================================================
+   FINAL CTA
+========================================================= */
+
+.destination-final-cta {
+  padding: 100px 24px;
+
+  text-align: center;
+
+  background: radial-gradient(
+    circle at center,
+    rgba(139, 92, 246, 0.09),
+    transparent 40%
+  );
+}
+
+.destination-final-cta h2 {
+  margin: 18px auto 0;
+
+  max-width: 720px;
+
+  font-family: var(--font-display);
+
+  font-size: clamp(45px, 6vw, 78px);
+
+  font-weight: 400;
+
+  line-height: 0.95;
+
+  letter-spacing: -0.05em;
+}
+
+.destination-final-cta h2 strong {
+  display: block;
+
+  background: linear-gradient(105deg, #ffffff, #c9a9ff 55%, #efd39c);
+
+  -webkit-background-clip: text;
+  background-clip: text;
+
+  color: transparent;
+}
+
+/* =========================================================
+   NOT FOUND
+========================================================= */
+
+.destination-not-found {
+  min-height: 100vh;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background: #06080b;
+
+  color: white;
+}
+
+.destination-not-found div {
+  text-align: center;
+}
+
+.destination-not-found h1 {
+  font-family: var(--font-display);
+}
+
+.destination-not-found button {
+  padding: 12px 18px;
+
+  border: 1px solid rgba(255, 255, 255, 0.15);
+
+  border-radius: 999px;
+
+  color: white;
+
+  background: rgba(255, 255, 255, 0.07);
+
+  cursor: pointer;
+}
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 800px) {
+  .destination-detail-hero {
+    min-height: 70vh;
+
+    padding: 125px 25px 60px;
+  }
+
+  .destination-back {
+    top: 85px;
+    left: 22px;
+  }
+
+  .destination-detail-content h1 {
+    font-size: clamp(52px, 15vw, 82px);
+  }
+
+  .destination-intro {
+    grid-template-columns: 1fr;
+
+    gap: 30px;
+
+    padding: 75px 25px;
+  }
+
+  .destination-highlights {
+    padding: 50px 25px;
+  }
+
+  .highlight-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .highlight-item,
+  .highlight-item:not(:first-child) {
+    padding: 23px 0;
+
+    border-right: 0;
+
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .highlight-item:last-child {
+    border-bottom: 0;
+  }
+
+  .destination-gallery {
+    grid-template-columns: 1fr;
+
+    padding: 50px 20px;
+  }
+
+  .gallery-image-1,
+  .gallery-image-2,
+  .gallery-image-3 {
+    grid-row: auto;
+
+    min-height: 250px;
+
+    max-height: 300px;
+  }
+
+  .destination-final-cta {
+    padding: 80px 25px;
+  }
+}

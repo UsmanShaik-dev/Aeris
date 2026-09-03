@@ -1,0 +1,491 @@
+/* =========================================================
+   AI PLANNER
+========================================================= */
+
+.ai-planner-section {
+  position: relative;
+
+  min-height: 560px;
+
+  display: grid;
+
+  grid-template-columns: 1.05fr 0.95fr;
+
+  align-items: center;
+
+  gap: 80px;
+
+  padding: 100px clamp(24px, 7vw, 110px);
+
+  overflow: hidden;
+
+  background:
+    radial-gradient(
+      circle at 75% 50%,
+      rgba(139, 92, 246, 0.14),
+      transparent 38%
+    ),
+    #090b0e;
+}
+
+/* =========================================================
+   BACKGROUND GLOW
+========================================================= */
+
+.ai-planner-glow {
+  position: absolute;
+
+  width: 500px;
+  height: 500px;
+
+  right: -180px;
+  top: 50%;
+
+  transform: translateY(-50%);
+
+  border-radius: 50%;
+
+  background: rgba(139, 92, 246, 0.1);
+
+  filter: blur(100px);
+
+  pointer-events: none;
+}
+
+/* =========================================================
+   CONTENT
+========================================================= */
+
+.ai-planner-content {
+  position: relative;
+
+  z-index: 1;
+
+  max-width: 650px;
+}
+
+/* =========================================================
+   AI ICON
+========================================================= */
+
+.ai-planner-icon {
+  width: 48px;
+  height: 48px;
+
+  display: grid;
+  place-items: center;
+
+  margin-bottom: 25px;
+
+  border: 1px solid rgba(167, 139, 250, 0.25);
+
+  border-radius: 15px;
+
+  color: #c4a7ff;
+
+  background: rgba(139, 92, 246, 0.1);
+
+  box-shadow: 0 0 40px rgba(139, 92, 246, 0.1);
+}
+
+/* =========================================================
+   HEADING
+========================================================= */
+
+.ai-planner-content h2 {
+  margin: 0;
+
+  font-family: var(--font-display);
+
+  font-size: clamp(50px, 6vw, 88px);
+
+  font-weight: 500;
+
+  line-height: 0.95;
+
+  letter-spacing: -0.055em;
+}
+
+.ai-planner-content h2 span {
+  display: block;
+
+  background: linear-gradient(100deg, #ffffff, #c4a7ff, #efd39c);
+
+  -webkit-background-clip: text;
+  background-clip: text;
+
+  color: transparent;
+}
+
+/* =========================================================
+   DESCRIPTION
+========================================================= */
+
+.ai-planner-content > p {
+  max-width: 540px;
+
+  margin: 28px 0 32px;
+
+  color: rgba(255, 255, 255, 0.58);
+
+  font-size: 15px;
+
+  line-height: 1.8;
+}
+
+/* =========================================================
+   BUTTONS
+========================================================= */
+
+.ai-planner-actions {
+  display: flex;
+
+  align-items: center;
+
+  gap: 12px;
+}
+
+.ai-primary-button,
+.ai-secondary-button {
+  height: 50px;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 10px;
+
+  padding: 0 19px;
+
+  border-radius: 999px;
+
+  font-size: 12px;
+
+  cursor: pointer;
+
+  transition:
+    transform 250ms ease,
+    background 250ms ease,
+    box-shadow 250ms ease;
+}
+
+/* Primary */
+
+.ai-primary-button {
+  border: 0;
+
+  color: white;
+
+  background: linear-gradient(110deg, #7c3aed, #9b6cff);
+
+  box-shadow: 0 12px 35px rgba(124, 58, 237, 0.25);
+}
+
+.ai-primary-button:hover {
+  transform: translateY(-3px);
+
+  background: linear-gradient(110deg, #8b5cf6, #a77cff);
+
+  box-shadow: 0 16px 45px rgba(124, 58, 237, 0.35);
+}
+
+/* Secondary */
+
+.ai-secondary-button {
+  border: 1px solid rgba(255, 255, 255, 0.12);
+
+  color: rgba(255, 255, 255, 0.7);
+
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.ai-secondary-button:hover {
+  color: white;
+
+  background: rgba(255, 255, 255, 0.08);
+
+  transform: translateY(-2px);
+}
+
+/* =========================================================
+   AI PREVIEW CARD
+========================================================= */
+
+.ai-planner-preview {
+  position: relative;
+
+  padding: 22px;
+
+  border: 1px solid rgba(255, 255, 255, 0.11);
+
+  border-radius: 26px;
+
+  background: linear-gradient(
+    145deg,
+    rgba(255, 255, 255, 0.07),
+    rgba(255, 255, 255, 0.025)
+  );
+
+  backdrop-filter: blur(20px);
+
+  box-shadow: 0 30px 100px rgba(0, 0, 0, 0.35);
+
+  transform: rotate(1deg);
+
+  transition:
+    transform 500ms ease,
+    box-shadow 500ms ease;
+}
+
+.ai-planner-preview:hover {
+  transform: rotate(0deg) translateY(-6px);
+
+  box-shadow:
+    0 40px 110px rgba(0, 0, 0, 0.45),
+    0 0 60px rgba(139, 92, 246, 0.08);
+}
+
+/* =========================================================
+   PREVIEW HEADER
+========================================================= */
+
+.preview-top {
+  display: flex;
+
+  align-items: center;
+
+  gap: 12px;
+
+  padding-bottom: 20px;
+
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.preview-ai-icon {
+  width: 40px;
+  height: 40px;
+
+  display: grid;
+  place-items: center;
+
+  border-radius: 12px;
+
+  color: #c4a7ff;
+
+  background: rgba(139, 92, 246, 0.14);
+}
+
+.preview-top div:nth-child(2) {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 4px;
+}
+
+.preview-top strong {
+  font-size: 13px;
+}
+
+.preview-top span {
+  color: rgba(255, 255, 255, 0.4);
+
+  font-size: 10px;
+}
+
+.online-dot {
+  width: 7px;
+  height: 7px;
+
+  margin-left: auto;
+
+  border-radius: 50%;
+
+  background: #8b5cf6;
+
+  box-shadow: 0 0 15px rgba(139, 92, 246, 0.8);
+}
+
+/* =========================================================
+   MESSAGES
+========================================================= */
+
+.preview-message {
+  max-width: 82%;
+
+  margin-top: 22px;
+
+  padding: 14px 16px;
+
+  border-radius: 14px;
+
+  font-size: 12px;
+
+  line-height: 1.6;
+}
+
+.user-message {
+  margin-left: auto;
+
+  color: rgba(255, 255, 255, 0.8);
+
+  background: rgba(139, 92, 246, 0.13);
+}
+
+.ai-message {
+  display: flex;
+
+  gap: 10px;
+
+  color: rgba(255, 255, 255, 0.68);
+
+  background: rgba(255, 255, 255, 0.045);
+}
+
+.ai-message svg {
+  flex-shrink: 0;
+
+  margin-top: 2px;
+
+  color: #b18cff;
+}
+
+/* =========================================================
+   INPUT
+========================================================= */
+
+.preview-input {
+  height: 48px;
+
+  display: flex;
+
+  align-items: center;
+
+  justify-content: space-between;
+
+  margin-top: 24px;
+
+  padding: 0 15px;
+
+  border: 1px solid rgba(255, 255, 255, 0.08);
+
+  border-radius: 12px;
+
+  color: rgba(255, 255, 255, 0.3);
+
+  font-size: 11px;
+}
+
+.preview-input svg {
+  color: #a77cff;
+}
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 900px) {
+  .ai-planner-section {
+    grid-template-columns: 1fr;
+
+    gap: 55px;
+
+    padding: 100px 30px;
+  }
+
+  .ai-planner-content {
+    max-width: 700px;
+  }
+
+  .ai-planner-preview {
+    width: min(100%, 620px);
+
+    justify-self: center;
+  }
+}
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 600px) {
+  .ai-planner-section {
+    gap: 40px;
+
+    padding: 85px 20px;
+  }
+
+  .ai-planner-content h2 {
+    font-size: clamp(50px, 15vw, 70px);
+  }
+
+  .ai-planner-content > p {
+    font-size: 13px;
+
+    margin: 24px 0 28px;
+  }
+
+  .ai-planner-actions {
+    flex-direction: column;
+
+    align-items: stretch;
+  }
+
+  .ai-primary-button,
+  .ai-secondary-button {
+    justify-content: center;
+  }
+
+  .ai-planner-preview {
+    padding: 17px;
+
+    border-radius: 21px;
+
+    transform: none;
+  }
+
+  .ai-planner-preview:hover {
+    transform: translateY(-3px);
+  }
+}
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .ai-planner-preview,
+  .ai-primary-button,
+  .ai-secondary-button {
+    transition: none;
+  }
+}
+.ai-planner-preview {
+  width: 100%;
+  padding: 22px;
+
+  border: 1px solid rgba(255, 255, 255, 0.11);
+  border-radius: 26px;
+
+  color: inherit;
+  font: inherit;
+  text-align: left;
+
+  cursor: pointer;
+
+  background: linear-gradient(
+    145deg,
+    rgba(255, 255, 255, 0.07),
+    rgba(255, 255, 255, 0.025)
+  );
+
+  backdrop-filter: blur(20px);
+
+  box-shadow: 0 30px 100px rgba(0, 0, 0, 0.35);
+
+  transform: rotate(1deg);
+
+  transition:
+    transform 500ms ease,
+    box-shadow 500ms ease;
+}
